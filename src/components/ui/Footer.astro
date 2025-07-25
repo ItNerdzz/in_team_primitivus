@@ -2,22 +2,20 @@
 import { Image } from "astro:assets";
 import Facebook from "../../assets/facebook.svg";
 import Linkedin from "../../assets/linkedin.svg";
-import Logo from "../../assets/logo-alt.svg";
-import Twitter from "../../assets/twitter.svg";
+import Telegram from "../../assets/telegram.svg";
 import ShortForm from "../ui/ShortForm.astro";
 
 const logos = [
-  { name: "Facebook", src: Facebook, link: "https://facebook.com" },
-  { name: "Linkedin", src: Linkedin, link: "https://linkedin.com" },
-  { name: "Twitter", src: Twitter, link: "https://twitter.com" },
+  { name: "Facebook", src: Facebook, link: "https://facebook.com/f4mhe" },
+  { name: "Linkedin", src: Linkedin, link: "https://www.linkedin.com/company/108247126/admin/dashboard/" },
+  { name: "Telegram", src: Telegram, link: "https://t.me/itnerdsdev" },
 ];
 
 const links = [
   { name: "About us", href: "#about" },
   { name: "Services", href: "#services" },
   { name: "Use Cases", href: "#cases" },
-  { name: "Pricing", href: "#Testimonials" },
-  { name: "Blog", href: "#Home" },
+  { name: "Contacts", href: "/contacts" },
 ];
 ---
 
@@ -32,7 +30,7 @@ const links = [
         >
           <picture>
             <a href="#home">
-              <Image src={Logo} alt="Logo for Kreatif Brand" />
+              <img src={'/Logo-alt.svg'} alt="IN Team logo" />
             </a>
           </picture>
           <ul class="flex flex-col sm:flex-row gap-5">
@@ -71,10 +69,11 @@ const links = [
           >
             <h3 class="mb-5 text-center md:text-left text-2xl text-green">Contact us</h3>
             <div class="flex flex-col justify-between gap-4">
-              <span> Email: examplemail.com </span>
-              <span> Phone: +123 456 789 </span>
+              <span> Email:
+              <a href="mailto:info@inteam.dev">info@inteam.dev</a>
+              </span>
               <span class="lg:w-3/4">
-                Address: 1234 Street Name, City Name, Country Name
+                Address: Tbilisi, Georgia
               </span>
             </div>
           </div>
@@ -88,36 +87,16 @@ const links = [
       <div
         class="flex flex-col lg:flex-row h-20 justify-center mt-4 text-center md:justify-between md:mt-0"
       >
-        <span
-          >2024 Positivus - Made With <a
+        <span>
+            <a
             class="underline"
             target="_blank"
-            href="https://astro.build">Astro</a
-          > by 
-          <a 
-          class="underline"
-          target="_blank"
-          href="https://manulthanura.com">Manul</a
-          ></span
+            href="/privacy">Privacy Policy</a
+          >
+          </span
         >&nbsp
         <span>
-          Credits (
-          <a
-            href="https://www.olgaskuja.design/"
-            target="_blank"
-            class="underline">Olga</a
-          >,
-          <a
-            href="https://esteban-vasquez.netlify.app/"
-            target="_blank"
-            class="underline">Esteban</a
-          >)
-          <span> &</span>
-          <a
-            class="underline"
-            href="https://creativecommons.org/licenses/by/4.0/"
-            target="_blank">Licence</a
-          >
+          {new Date().getFullYear()} ©
         </span>
       </div>
     </div>

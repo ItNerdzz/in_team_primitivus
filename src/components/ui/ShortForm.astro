@@ -1,16 +1,70 @@
 <form
-  class="bg-[#292A32] px-10 py-14 rounded-[14px] gap-5 h-full flex flex-col sm:flex-row items-center justify-center"
+        class="bg-[#292A32] px-10 py-14 rounded-[14px] gap-5 h-full"
+        id="subscription-form"
 >
-  <div class="w-full sm:w-[55%]">
-    <input
-      type="text"
-      id="email"
-      name="email"
-      placeholder="Email"
-      class="bg-transparent w-full px-[35px] py-5 border rounded-[14px] focus:outline-none"
-    />
-  </div>
-  <button type="submit" name="submit" class="w-full sm:w-[45%] btn-tertiary"
-    >Subscribe to news</button
-  >
+    <div id="form-inner" class="flex flex-col sm:flex-row items-center justify-center gap-5">
+        <div class="w-full sm:w-[55%]">
+            <input
+                    type="text"
+                    id="subscription-email"
+                    name="subscription-email"
+                    placeholder="Email"
+                    class="bg-transparent w-full px-[35px] py-5 border rounded-[14px] focus:outline-none"
+            />
+        </div>
+        <button type="submit" name="submit" class="w-full sm:w-[45%] btn-tertiary"
+        >Subscribe to news
+        </button
+        >
+    </div>
+    <div id="thank" class="hidden flex items-center justify-center text-green font-medium">
+        Thank you for subscribing!
+    </div>
 </form>
+<script>
+    const form = document.querySelector("#subscription-form");
+    const formInner = form?.querySelector("#form-inner");
+    const formThank = form?.querySelector("#thank");
+    const emailInput = form?.querySelector('#subscription-email') as HTMLInputElement;
+    const validateEmail = () => {
+        if (!emailInput) return null;
+        const isEmailValid = emailInput.value.length >= 4 && emailInput.value.includes('@') && emailInput.value.includes('.')
+
+        if (isEmailValid) emailInput.classList.remove('error')
+        if (!isEmailValid) emailInput.classList.add('error')
+        return isEmailValid;
+    };
+
+    if (emailInput) emailInput.addEventListener('input', () => {
+        if (emailInput.classList.contains('error')) validateEmail();
+    })
+
+    if (form) {
+        form.addEventListener("submit", (evt) => {
+            evt.preventDefault();
+
+            if (!validateEmail()) return;
+
+            try {
+                fetch('http://212.67.9.36/inteamform', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: emailInput.value,
+                        message: 'Subscribe to news',
+                    })
+                }).then(res => {
+                    if (res.status === 200 && formThank && formInner) {
+                        formInner.classList.add('hidden');
+                        formThank.classList.remove('hidden');
+                    }
+                });
+
+            } catch (err) {
+                console.log(err);
+            }
+        })
+    }
+</script>

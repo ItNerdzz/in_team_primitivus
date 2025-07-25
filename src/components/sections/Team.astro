@@ -4,73 +4,68 @@ import TeamCard from "../ui/TeamCard.astro";
 import Section from "./Section.astro";
 
 const description =
-  "Meet the skilled and experienced team behind our successful digital marketing strategies";
+  "We’re not just coders — we’re your partners in design, development, and promotion. From the first sketch to the final campaign, we’re with you every step of the way.";
 
 // Team images
-import p1 from "../../assets/team/t1.png";
-import p2 from "../../assets/team/t2.png";
-import p3 from "../../assets/team/t3.png";
-import p4 from "../../assets/team/t4.png";
-import p5 from "../../assets/team/t5.png";
-import p6 from "../../assets/team/t6.png";
+import p1 from "../../assets/team/Kirill.jpg";
+import p2 from "../../assets/team/sofja.jpg";
+import p3 from "../../assets/team/artem.jpg";
+import p4 from "../../assets/team/mikhail.jpg";
+import p5 from "../../assets/team/anna.jpg";
+import p6 from "../../assets/team/kirillt.jpg";
 
 const team = [
   {
     pic: p1,
-    name: "John Smith",
+    name: "Kirill Bashorin",
     role: "CEO and Founder",
     description:
-      "10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy",
-    link: "https://linkedin.com",
+      "5+ year in web-site development. Expertise in SEO, PPC, and content strategy",
+    link: "https://www.linkedin.com/in/kirill-bashorin-73551a249/",
   },
   {
     pic: p2,
-    name: "Jane Doe",
+    name: "Sofia B.",
     role: "Director of Operations",
     description:
-      "7+ years of experience in project management and team leadership. Strong organizational and communication skills",
-    link: "https://linkedin.com",
-  },
-  {
-    pic: p3,
-    name: "Michael Brown",
-    role: "Senior SEO Specialist",
-    description:
-      "5+ years of experience in SEO and content creation. Proficient in keyword research and on-page optimization",
-    link: "https://linkedin.com",
-  },
-  {
-    pic: p4,
-    name: "Emily Johnson",
-    role: "PPC Manager",
-    description:
-      "3+ years of experience in paid search advertising. Skilled in campaign management and performance analysis",
-    link: "https://linkedin.com",
+      "4+ years of experience in project management and team leadership. Strong organizational and communication skills",
   },
   {
     pic: p5,
-    name: "Brian Williams",
-    role: "Social Media Specialist",
+    name: "Anna I.",
+    role: "Senior Designer",
     description:
-      "4+ years of experience in social media marketing. Proficient in creating and scheduling content, analyzing metrics, and building engagement",
-    link: "https://linkedin.com",
+        "5+ years of experience in graphic and web-design. Proficient in ux/ui design and branding",
+  },
+  {
+    pic: p3,
+    name: "Artem S.",
+    role: "Developers team-lead",
+    description:
+        "6+ years of experience in web-development. Strong knowledge of TypeScript, React, and Node.js",
+  },
+  {
+    pic: p4,
+    name: "Mikhail E.",
+    role: "Senior SEO Specialist",
+    description:
+      "5+ years of experience in SEO and content creation. Proficient in keyword research and on-page optimization",
   },
   {
     pic: p6,
-    name: "Sarah Kim",
-    role: "Content Creator",
+    name: "Kirill T.",
+    role: "PPC and Marketing",
     description:
-      "2+ years of experience in writing and editing. Skilled in creating compelling, SEO-optimized content for various industries",
-    link: "https://linkedin.com",
+      "10+ years of experience in paid search advertising. Skilled in campaign management and performance analysis",
   },
 ];
 ---
 
 <Section id="about">
   <div class="mt-[140px]">
-    <SectionTitle sectionTitle="Team" description={description} />
+    <SectionTitle sectionTitle="Meet your team" description={description} />
     <div
-      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-2 gap-10"
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-2 gap-10 pb-2"
     >
       {
         team.map((member, index) => (
@@ -85,8 +80,8 @@ const team = [
         ))
       }
     </div>
-    <div class="flex justify-end mt-10">
-      <button class="btn-primary">See all team</button>
-    </div>
+    <!--<div class="flex justify-end mt-10">-->
+    <!--  <button class="btn-primary">See all team</button>-->
+    <!--</div>-->
   </div>
 </Section>

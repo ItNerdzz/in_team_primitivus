@@ -132,6 +132,10 @@
     .blackhead {
       @apply bg-black text-white rounded-[7px] px-[7px];
     }
+
+    .error {
+      @apply !border-red-500;
+    }
   }
 }
 
